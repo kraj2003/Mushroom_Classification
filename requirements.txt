@@ -12,4 +12,5 @@ pyYAML
 python-box==6.0.2
 # pickle
 setuptools
+plotly
 # -e .
