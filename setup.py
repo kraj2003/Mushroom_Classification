@@ -1,4 +1,4 @@
-import setuptools
+import setuptools # type: ignore
 
 with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
@@ -7,9 +7,9 @@ with open("README.md", "r", encoding="utf-8") as f:
 __version__ = "0.0.0"
 
 REPO_NAME = "End-to-end-ML-Project"
-AUTHOR_USER_NAME = "entbappy"
-SRC_REPO = "mlProject"
-AUTHOR_EMAIL = "entbappy73@gmail.com"
+AUTHOR_USER_NAME = "Khushi Rajpurohit"
+SRC_REPO = "mushroom_classification"
+AUTHOR_EMAIL = "khushirajpurohit617@gmail.com"
 
 
 setuptools.setup(

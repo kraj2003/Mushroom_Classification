@@ -7,10 +7,11 @@ Flask
 Flask-Cors
 joblib
 types-PyYAML
-ensure==1.0.2
+ensure
 pyYAML
 python-box==6.0.2
+PyYAML
+types-PyYAML
 # pickle
-setuptools
 plotly
 # -e .
