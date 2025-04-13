@@ -1,43 +1,47 @@
 COLUMNS:
 
-cap-shape: object
+  cap-shape: object
 
-cap-surface: object
+  cap-surface: object
 
-cap-color: object
+  cap-color: object
 
-bruises: object
+  bruises: object
 
-odor: object
+  odor: object
 
-gill-attachment: object
+  gill-attachment: object
 
-gill-spacing: object
+  gill-spacing: object
 
-gill-size: object
+  gill-size: object
 
-gill-color: object
+  gill-color: object
 
-stalk-shape: object
+  stalk-shape: object
 
-stalk-root: object
+  stalk-root: object
 
-stalk-surface-above-ring: object
+  stalk-surface-above-ring: object
 
-stalk-surface-below-ring: object
-stalk-color-above-ring: object
+  stalk-surface-below-ring: object
+  stalk-color-above-ring: object
 
-stalk-color-below-ring: object
+  stalk-color-below-ring: object
 
-veil-type: object
+  veil-type: object
 
-veil-color: object
+  veil-color: object
 
-ring-number: object
+  ring-number: object
 
-ring-type: object
+  ring-type: object
 
-spore-print-color: object
+  spore-print-color: object
+
+  population: object
+
+  habitat: object
 
 TARGET_COLUMN:
 name: classes
