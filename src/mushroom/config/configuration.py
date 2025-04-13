@@ -1,6 +1,6 @@
 from src.mushroom.utils.common import *
 from src.mushroom.constants import SCHEMA_FILE_PATH , CONFIG_FILE_PATH , PARAMS_FILE_PATH
-from src.mushroom.entity.config_entity import DataIngestionConfig
+from src.mushroom.entity.config_entity import DataIngestionConfig, DataValidationConfig
 from src.mushroom.utils.common import *
 
 
@@ -31,3 +31,17 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+    
+    def get_data_validaion_config(self)->DataValidationConfig:
+        config=self.config["data_validation"]
+        schema=self.schema['COLUMNS']
+
+        create_directories([config['root_dir']])
+        data_validation_config=DataValidationConfig(
+            root_dir=config['root_dir'],
+            data_file=config['data_file'],
+            status_file=config['status_file'],
+            all_schema=schema
+
+        )
+        return data_validation_config
