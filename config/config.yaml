@@ -11,3 +11,15 @@ data_validation:
   root_dir: artifacts/data_validation
   data_file: artifacts/data_ingestion/mushrooms.csv
   status_file : artifacts/data_validation/status.txt
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_file: artifacts/data_ingestion/mushrooms.csv
+  final_model: artifacts/final_model
+  preprocessor: final_model/preprocessor.pkl
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  train_arr: artifacts/data_transformation/train.npy
+  test_arr: artifacts/data_transformation/test.npy
+  model_name: model.joblib

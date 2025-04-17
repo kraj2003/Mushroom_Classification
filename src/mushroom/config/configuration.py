@@ -1,6 +1,6 @@
 from src.mushroom.utils.common import *
 from src.mushroom.constants import SCHEMA_FILE_PATH , CONFIG_FILE_PATH , PARAMS_FILE_PATH
-from src.mushroom.entity.config_entity import DataIngestionConfig, DataValidationConfig
+from src.mushroom.entity.config_entity import DataIngestionConfig, DataValidationConfig , DataTransformationConfig
 from src.mushroom.utils.common import *
 
 
@@ -45,3 +45,21 @@ class ConfigurationManager:
 
         )
         return data_validation_config
+    
+    def get_data_transformation_config(self)->DataTransformationConfig:
+        config=self.config["data_transformation"]
+
+        create_directories([config['root_dir']])
+        data_transformation_config=DataTransformationConfig(
+            root_dir=config['root_dir'],
+            data_file=config['data_file'],
+            final_model=config['final_model'],
+            preprocessor=config['preprocessor']
+        )
+        return data_transformation_config
+
+    @property
+    def data_file(self):
+        """Returns the data file path."""
+        config = self._read_config_file()
+        return config.get('data_file')  # Ensure data_file is defined in the YAML config

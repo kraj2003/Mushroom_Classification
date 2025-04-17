@@ -14,3 +14,20 @@ class DataValidationConfig:
     data_file:Path
     status_file:str
     all_schema:dict
+
+@dataclass
+class DataTransformationConfig:
+    root_dir:Path
+    data_file:Path
+    final_model: Path
+    preprocessor: Path
+
+@dataclass
+class ModelTrainerConfig:
+    root_dir: Path
+    train_arr: Path
+    test_arr :Path
+    model_name : str
+    alpha:float
+    l1_ratio:float
+    target_column:str

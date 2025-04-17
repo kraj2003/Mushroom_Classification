@@ -1,6 +1,8 @@
 import os
 from box.exceptions import BoxValueError
+from src.mushroom.logging import logging
 import yaml
+import pickle
 from src.mushroom.logging import logger
 from src.mushroom.exceptions.exception import ClassificationException 
 import json
@@ -21,7 +23,27 @@ def read_yaml_file(file_path: str) -> dict:
     except Exception as e:
         raise ClassificationException(e, sys) from e
     
+def load_object(file_path: str, ) -> object:
+    try:
+        if not os.path.exists(file_path):
+            raise Exception(f"The file: {file_path} is not exists")
+        with open(file_path, "rb") as file_obj:
+            print(file_obj)
+            return pickle.load(file_obj)
+    except Exception as e:
+        raise ClassificationException(e, sys)
+    
 
+def save_object(file_path: str, obj: object) -> None:
+    try:
+        logging.info("Entered the save_object method of MainUtils class")
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        with open(file_path, "wb") as file_obj:
+            pickle.dump(obj, file_obj)
+        logging.info("Exited the save_object method of MainUtils class")
+    except Exception as e:
+        raise ClassificationException(e,sys)
+    
 
 @ensure_annotations
 def create_directories(path_to_directories: list, verbose=True):
