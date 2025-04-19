@@ -44,4 +44,4 @@ COLUMNS:
   habitat: object
 
 TARGET_COLUMN:
-name: class
+  name: class

@@ -27,7 +27,7 @@ class ModelTrainerConfig:
     root_dir: Path
     train_arr: Path
     test_arr :Path
-    model_name : str
-    alpha:float
-    l1_ratio:float
-    target_column:str
+    model_name : Path
+    n_estimators: float
+    criterion: str
+    target_column: str

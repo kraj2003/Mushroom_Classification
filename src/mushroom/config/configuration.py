@@ -1,6 +1,6 @@
 from src.mushroom.utils.common import *
 from src.mushroom.constants import SCHEMA_FILE_PATH , CONFIG_FILE_PATH , PARAMS_FILE_PATH
-from src.mushroom.entity.config_entity import DataIngestionConfig, DataValidationConfig , DataTransformationConfig
+from src.mushroom.entity.config_entity import DataIngestionConfig, DataValidationConfig , DataTransformationConfig, ModelTrainerConfig
 from src.mushroom.utils.common import *
 
 
@@ -8,12 +8,13 @@ class ConfigurationManager:
     def __init__(
         self,
         config_filepath = CONFIG_FILE_PATH,
-        # params_filepath = PARAMS_FILE_PATH,
+        params_filepath = PARAMS_FILE_PATH,
         schema_filepath = SCHEMA_FILE_PATH):
 
         self.config = read_yaml_file(config_filepath)
         # self.params = read_yaml(params_filepath)
         self.schema = read_yaml_file(schema_filepath)
+        self.params=read_yaml_file(params_filepath)
 
         create_directories([self.config["artifacts_root"]])
 
@@ -63,3 +64,20 @@ class ConfigurationManager:
         """Returns the data file path."""
         config = self._read_config_file()
         return config.get('data_file')  # Ensure data_file is defined in the YAML config
+
+    def get_model_trainer_config(self)->ModelTrainerConfig:
+        config=self.config['model_trainer']
+        params = self.params['RandomForestClassifier']
+        schema =  self.schema['TARGET_COLUMN']
+
+        create_directories([config['root_dir']])
+        model_trainer_config=ModelTrainerConfig(
+            root_dir=config['root_dir'],
+            train_arr=config['train_arr'],
+            test_arr=config['test_arr'],
+            model_name=config['model_name'],
+            n_estimators=params['n_estimators'],
+            criterion=params['criterion'],
+            target_column=schema['name']
+        )
+        return model_trainer_config

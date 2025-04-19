@@ -23,3 +23,9 @@ model_trainer:
   train_arr: artifacts/data_transformation/train.npy
   test_arr: artifacts/data_transformation/test.npy
   model_name: model.joblib
+
+model_eval:
+  root_dir: artifacts/model_eval
+  test_arr: artifacts/data_transformation/test.npy
+  model_path: artifacts/model_trainer/model.joblib
+  metric_file_name: artifacts/model_eval/metrics.json
